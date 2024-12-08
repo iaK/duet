@@ -3,7 +3,7 @@ import serve from "electron-serve";
 import path from "path";
 
 const appServe = app.isPackaged ? serve({
-  directory: path.join(__dirname, "../out")
+  directory: path.join("out")
 }) : null;
 
 const createWindow = () => {
@@ -17,7 +17,7 @@ const createWindow = () => {
 
   if (app.isPackaged) {
     appServe(win).then(() => {
-      win.loadURL("app://-");
+      win.loadURL("app://start");
     });
   } else {
     win.loadURL("http://localhost:3000/start");
