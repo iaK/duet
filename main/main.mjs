@@ -1,9 +1,13 @@
 import { app, BrowserWindow } from "electron";
 import serve from "electron-serve";
 import path from "path";
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const appServe = app.isPackaged ? serve({
-  directory: path.join(import.meta.dirname, "../out")
+  directory: path.join(__dirname, "../out")
 }) : null;
 
 const createWindow = () => {
@@ -11,7 +15,7 @@ const createWindow = () => {
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(import.meta.dirname, "preload.js")
+      preload: path.join(__dirname, "preload.js")
     }
   });
 

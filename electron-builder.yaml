@@ -10,3 +10,6 @@ copyright: "Copyright (c) 2023 RBFraphael"
 mac:
   target: ["dir", "dmg", "zip"]
   icon: "resources/icon.icns"
+files:
+  - "out/**/*"
+  - "main/**/*"
