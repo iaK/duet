@@ -3,7 +3,7 @@ import serve from "electron-serve";
 import path from "path";
 
 const appServe = app.isPackaged ? serve({
-  directory: path.join("out")
+  directory: path.join(import.meta.dirname, "../out")
 }) : null;
 
 const createWindow = () => {
@@ -11,7 +11,7 @@ const createWindow = () => {
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join("main/preload.js")
+      preload: path.join(import.meta.dirname, "preload.js")
     }
   });
 
